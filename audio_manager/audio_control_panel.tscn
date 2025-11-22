@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8niiglb1x1tf"]
+
+[ext_resource type="PackedScene" uid="uid://drbvw25a7s62s" path="res://addons/audio_manager/audio_bar_array_hori.tscn" id="1_mqyxx"]
+
+[node name="AudioControlPanel" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioBarArray" parent="." instance=ExtResource("1_mqyxx")]
+layout_mode = 2

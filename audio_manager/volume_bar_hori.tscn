@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqpd2p68b3nk5"]
+
+[ext_resource type="Script" uid="uid://blqdleyhtvq3y" path="res://addons/audio_manager/volume_bar.gd" id="1_18qt0"]
+[ext_resource type="Script" uid="uid://vtvgmpbgd552" path="res://addons/audio_manager/mute_btn.gd" id="2_ru3yn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dmgy5"]
+
+[node name="VolumeBar" type="PanelContainer"]
+process_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dmgy5")
+script = ExtResource("1_18qt0")
+
+[node name="VolumeBar" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="AudioBusDispName" type="Label" parent="VolumeBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "timer
+alert"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VolumeSlider" type="HSlider" parent="VolumeBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../MuteBtn")
+focus_neighbor_right = NodePath("../MuteBtn")
+focus_next = NodePath("../MuteBtn")
+focus_previous = NodePath("../MuteBtn")
+focus_mode = 0
+max_value = 1.0
+step = 0.001
+value = 1.0
+scrollable = false
+
+[node name="MuteBtn" type="Button" parent="VolumeBar"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../VolumeSlider")
+focus_neighbor_right = NodePath("../VolumeSlider")
+focus_mode = 0
+theme_override_constants/icon_max_width = 40
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_ru3yn")
+
+[connection signal="mouse_entered" from="VolumeBar/VolumeSlider" to="." method="_on_volume_slider_mouse_entered"]
+[connection signal="mouse_entered" from="VolumeBar/MuteBtn" to="VolumeBar/MuteBtn" method="_on_mouse_entered"]

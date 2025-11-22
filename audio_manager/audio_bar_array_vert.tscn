@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnnsgvpq8iy23"]
+
+[ext_resource type="Script" uid="uid://bnx3i70p7vawk" path="res://addons/audio_manager/audio_bar_array.gd" id="1_mdcj1"]
+
+[node name="AudioBarArray" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mdcj1")
+is_horizontal_sliders = false
+metadata/_tab_index = 0
